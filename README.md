@@ -40,7 +40,7 @@ src/
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/labora-website.git
+git clone https://github.com/kqngyn/labora-website.git
 ```
 
 Install dependencies:
