@@ -35,15 +35,38 @@
     window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  var typed = document.getElementById("loaderTyped");
+  var GREETING = "welcome to labora";
+  var TYPE_MS = 95; // per character
+  var HOLD_MS = 650; // beat on the finished line before leaving
+
   var progress = 0;
   var target = 0;
   var done = false;
   var START = Date.now();
-  var MIN_MS = 1100; // keep it on screen at least this long
+  // The typed greeting now supplies most of the dwell, so the fill itself
+  // doesn't need to linger the way it did.
+  var MIN_MS = 600; // keep it on screen at least this long
   var MAX_MS = 4000; // hard cap so it always finishes
 
   function setCover() {
     if (cover) cover.style.height = 100 - progress + "%";
+  }
+
+  function typeOut(text, whenDone) {
+    if (!typed) return whenDone();
+    var i = 0;
+    loader.classList.add("is-typing"); // starts the caret blinking
+    (function step() {
+      typed.textContent = text.slice(0, i);
+      if (i >= text.length) {
+        loader.classList.remove("is-typing"); // caret rests on the last letter
+        whenDone();
+        return;
+      }
+      i += 1;
+      window.setTimeout(step, TYPE_MS);
+    })();
   }
 
   function finish() {
@@ -67,8 +90,19 @@
         body.classList.remove("is-loading");
       }, 900);
     }
-    // let the fill reach the top before sliding away
-    window.setTimeout(slideUp, reduce ? 0 : 320);
+
+    if (reduce) {
+      if (typed) typed.textContent = GREETING; // no animation, just the words
+      slideUp();
+      return;
+    }
+
+    // let the fill reach the top, type the greeting, then slide away
+    window.setTimeout(function () {
+      typeOut(GREETING, function () {
+        window.setTimeout(slideUp, HOLD_MS);
+      });
+    }, 320);
   }
 
   // Ease progress toward target each frame

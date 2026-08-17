@@ -34,6 +34,14 @@
         </div>
         <div class="loader__cover" id="loaderCover"></div>
       </div>
+
+      <!-- Typed greeting. The ghost copy is hidden but reserves the final
+         width, so the line stays centred instead of drifting as it types. -->
+      <p class="loader__type">
+        <span class="loader__ghost">welcome to labora</span>
+        <!-- no whitespace inside: the typed span preserves spaces -->
+        <span class="loader__line"><span class="loader__typed" id="loaderTyped"></span><span class="loader__caret"></span></span>
+      </p>
     </div>
 
     <!-- ============ ANNOUNCEMENT BAR ============ -->

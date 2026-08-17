@@ -1309,6 +1309,7 @@ body.is-loading {
   z-index: 1000;
   background: var(--cream);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   transform: translateY(0);
@@ -1348,12 +1349,67 @@ body.is-loading {
   transition: height 0.25s linear;
 }
 
+
+/* --- Typed greeting, played out before the panel leaves --- */
+.loader__type {
+  position: relative;
+  margin-top: 30px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 5px;
+  color: var(--bg);
+  white-space: nowrap;
+}
+/* reserves the finished width so the line doesn't drift while typing */
+.loader__ghost {
+  visibility: hidden;
+}
+/* spans the reserved box and centres inside it, so the greeting stays
+   centred under the logo at every stage of the typing */
+.loader__line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  text-align: center;
+}
+/* only the typed text needs its spaces preserved */
+.loader__typed {
+  white-space: pre;
+}
+.loader__caret {
+  display: inline-block;
+  width: 1px;
+  height: 1.05em;
+  background: currentColor;
+  vertical-align: -0.15em;
+  opacity: 0;
+}
+/* the caret only exists while the greeting is being typed */
+.loader.is-typing .loader__caret {
+  animation: laboraCaret 1.1s steps(1, end) infinite;
+}
+@keyframes laboraCaret {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .loader {
     transition: none;
   }
   .loader__cover {
     transition: none;
+  }
+  .loader.is-typing .loader__caret {
+    animation: none;
+    opacity: 0;
   }
 }
 
