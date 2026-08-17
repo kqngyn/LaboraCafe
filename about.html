@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us — Labora Cafe</title>
+    <meta
+      name="description"
+      content="Labōra — Latin for 'to work.' A tribute to the quiet rituals of early mornings and late-night grinds, rooted in San Diego."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page-inner page-about">
+    <!-- ============ ANNOUNCEMENT BAR (fixed) ============ -->
+    <div class="announce">
+      <p>
+        The Next One&rsquo;s on Us &mdash; Get 25 Points When You Join the
+        Labora App
+        <a href="https://apps.apple.com/us/app/labora-cafe-rewards/id6759777764" class="announce__cta" target="_blank" rel="noopener">[Claim 25 Points]</a>
+      </p>
+    </div>
+
+    <!-- ============ HERO ============ -->
+    <section class="about-hero">
+      <!-- NAV -->
+      <header class="nav">
+        <a href="index.html" class="nav__logo" aria-label="Labora Cafe home">
+          <img src="assets/labora%20logo%20black.png" alt="Labora Cafe" />
+        </a>
+
+        <nav class="nav__links" aria-label="Primary">
+          <a href="menu.html" class="nav__link">MENU</a>
+          <a href="about.html" class="nav__link is-active">ABOUT</a>
+          <a href="careers.html" class="nav__link">CAREERS</a>
+          <a href="locations.html" class="nav__link">LOCATIONS</a>
+          <a href="events.html" class="nav__link">EVENTS</a>
+        </nav>
+
+        <a href="https://onlineordering.laboracafe.com/" class="nav__order" target="_blank" rel="noopener">ORDER ONLINE</a>
+
+        <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+          MENU
+        </button>
+      </header>
+
+      <!-- Same footage as the ABOUT column on the home page; transition.js
+         picks it up at the timestamp it was at when the column was clicked. -->
+      <div class="about-hero__media">
+        <video
+          class="about-hero__video js-hero-video"
+          muted
+          loop
+          playsinline
+          preload="auto"
+          data-section="about"
+          data-video="assets/videos/about.mov"
+        ></video>
+      </div>
+
+      <div class="about-hero__cue">
+        <p class="about-hero__label">[ about us ]</p>
+        <p class="about-hero__pron">Lab&#333;ra (Latin) /&#712;la.bo.ra/</p>
+        <p class="about-hero__work">to work</p>
+      </div>
+    </section>
+
+    <!-- ============ MAIN ============ -->
+    <main class="about-main">
+      <!-- VIEW TWO — statement + "To work. To savor." -->
+      <section class="about-view2">
+        <h2 class="about-statement">
+          WORK IN QUIET LUXURY,<br />DISTILLED IN COFFEE
+        </h2>
+        <div class="about-view2__row">
+          <div class="about-view2__text">
+            <h3 class="about-eyebrow">To work. To savor.</h3>
+            <p class="about-p">
+              Labora is derived from the Latin word meaning &lsquo;to
+              work.&rsquo; At our core, Labora Caf&eacute; is a tribute to the
+              quiet rituals of early mornings and late-night grinds.
+            </p>
+            <p class="about-p">
+              Rooted in San Diego, we pride ourselves on our delicate,
+              slow-dripped Vietnamese coffee and premium ceremonial-grade
+              matcha, crafted with both patience and intention.
+            </p>
+          </div>
+          <div class="about-img about-view2__img js-scale">
+            <img src="assets/img1.jpg" alt="" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW ONE — a letter from our founders -->
+      <section class="about-view1">
+        <div class="about-view1__left">
+          <div class="about-img about-view1__small js-scale">
+            <img src="assets/img2.jpg" alt="" loading="lazy" decoding="async" />
+          </div>
+          <div class="about-view1__text">
+            <h3 class="about-eyebrow">A letter from our founders:</h3>
+            <p class="about-p">Welcome to Labora!</p>
+            <p class="about-p">
+              As San Diego natives, we are deeply proud to share Labora with our
+              community. Our mission is to provide luxury, quality drinks that
+              enrich your daily rituals while creating a co-working space
+              designed to spark productivity and inspire creative thinking.
+            </p>
+            <p class="about-p">
+              Labora is more than a caf&eacute;, it&rsquo;s a place where
+              thoughtful craftsmanship meets a spirit of connection, and where
+              every detail is meant to elevate both your work and your moments
+              of pause.
+            </p>
+            <p class="about-p">
+              We are honored to welcome you into our space and hope it becomes a
+              home for your ideas, your focus, and your inspiration.
+            </p>
+            <p class="about-p">
+              Best regards,<br />Bao Doan &amp; Lauren Thiemthat
+            </p>
+          </div>
+        </div>
+        <div class="about-img about-view1__big js-scale">
+            <img src="assets/img3.jpg" alt="" loading="lazy" decoding="async" />
+          </div>
+      </section>
+
+      <!-- VIEW THREE — wide media + About Our Matcha (full width) -->
+      <section class="about-view3">
+        <div class="about-img about-img--wide about-img--dark js-scale">
+          <video
+            class="about-video js-about-video"
+            muted
+            loop
+            playsinline
+            preload="none"
+            data-video="assets/videos/matcha.mov"
+          ></video>
+        </div>
+        <h3 class="about-eyebrow">About Our Matcha</h3>
+        <p class="about-p">
+          Our matcha is crafted from first-harvest tea leaves grown in Kyoto and
+          Kagoshima, two of Japan&rsquo;s most respected tea regions. The leaves
+          are shade-grown, carefully selected, and slowly stone-milled to
+          preserve their natural color and character.
+        </p>
+        <p class="about-p">
+          Kyoto brings depth and gentle umami, while Kagoshima adds freshness
+          and clarity. Together, they create a matcha that is smooth, balanced,
+          and quietly expressive.
+        </p>
+        <p class="about-p">
+          Each batch is blended with care to highlight harmony over intensity,
+          allowing the matcha to unfold gradually on the palate. You&rsquo;ll
+          notice a naturally creamy texture, low bitterness, and a lingering
+          sweetness that makes it versatile enough for daily rituals or slow,
+          intentional moments.
+        </p>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <div class="footer__cols">
+        <div class="footer__col">
+          <h3 class="footer__label">ADDRESS</h3>
+          <p>8055 Clairemont Mesa<br />BLVD #100, San Diego CA<br />92111</p>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__label">CONTACT</h3>
+          <p>help@laboracafe.com<br />Tel: 1.888.569.0660</p>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__label">HOURS</h3>
+          <p>OPEN DAILY<br />SUN&ndash;SAT: 7AM&ndash;11PM</p>
+        </div>
+
+        <div class="footer__brand">
+          <img
+            class="footer__logo"
+            src="assets/labora%20logo%20white.png"
+            alt="Labora Cafe"
+          />
+          <div class="footer__social">
+            <a href="https://www.instagram.com/laboracafe/" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle
+                  cx="17.5"
+                  cy="6.5"
+                  r="1"
+                  fill="currentColor"
+                  stroke="none"
+                />
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path
+                  d="M14 9h3V5h-3c-2.2 0-4 1.8-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9c0-.6.4-1 1-1z"
+                />
+              </svg>
+            </a>
+            <a href="https://www.yelp.com/biz/labora-kearny-mesa-san-diego?osq=Labora+-+Kearny+Mesa&amp;dd_referrer=https%3A%2F%2Fwww.yelp.com%2F" aria-label="Yelp" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path
+                  d="M12.5 3c-.6 0-3.5.9-3.9 1.5-.3.4-.2.9-.1 1.4l1.7 6.2c.2.7.6 1 1 1 .3 0 .6-.2.9-.6l3.3-4.9c.3-.5.5-.9.3-1.4C15.4 5.6 13.1 3 12.5 3zM8.2 13.6 3.6 12c-.5-.1-1-.2-1.4.2-.4.5-.7 3.1-.4 3.7.2.5.7.7 1.2.8l4.7.4c.6 0 1-.2 1.1-.6.2-.5 0-.9-.4-1.2zm1.9 2.1c-.4-.2-.9-.1-1.2.3l-2.7 3.9c-.3.4-.5.9-.3 1.4.3.6 2.5 1.9 3.1 1.8.6 0 .9-.5 1-1l.7-4.8c.1-.6-.1-1-.5-1.2zm5.6.6c-.2-.4-.6-.6-1.1-.5l-4.7 1c-.6.1-.9.5-.9 1 0 .6 2.1 4 2.6 4.2.5.2 1-.1 1.3-.5l2.6-4c.3-.4.4-.8.2-1.2zm3.6-3.2-4.6-1.4c-.5-.1-1 0-1.2.5-.2.4 0 .9.3 1.2l3.6 3.2c.4.3.8.5 1.3.3.6-.3 1.6-2.7 1.5-3.3-.1-.5-.5-.8-.9-.5z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__tagline">
+        <h2 class="footer__headline">
+          WORK IN QUIET LUXURY,<br />DISTILLED IN COFFEE
+        </h2>
+
+        <p class="footer__legal">
+          LABORA CAFE &copy; 2025, ALL RIGHTS RESERVED<br />
+          DESIGNED BY
+          <a href="https://khoiqnguyen.com" target="_blank" rel="noopener"
+            >KHOI NGUYEN</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <script src="about.js"></script>
+    <script src="transition.js"></script>
+  </body>
+</html>

@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Locations — Labora Cafe</title>
+    <meta
+      name="description"
+      content="Find Labora Cafe — our legacy store in Kearny Mesa, and North Park opening soon. San Diego."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page-inner page-locations">
+    <!-- ============ ANNOUNCEMENT BAR (fixed) ============ -->
+    <div class="announce">
+      <p>
+        The Next One&rsquo;s on Us &mdash; Get 25 Points When You Join the
+        Labora App
+        <a href="https://apps.apple.com/us/app/labora-cafe-rewards/id6759777764" class="announce__cta" target="_blank" rel="noopener">[Claim 25 Points]</a>
+      </p>
+    </div>
+
+    <!-- ============ HERO ============ -->
+    <section class="loc-hero">
+      <!-- NAV -->
+      <header class="nav">
+        <a href="index.html" class="nav__logo" aria-label="Labora Cafe home">
+          <img src="assets/labora%20logo%20white.png" alt="Labora Cafe" />
+        </a>
+
+        <nav class="nav__links" aria-label="Primary">
+          <a href="menu.html" class="nav__link">MENU</a>
+          <a href="about.html" class="nav__link">ABOUT</a>
+          <a href="careers.html" class="nav__link">CAREERS</a>
+          <a href="locations.html" class="nav__link is-active">LOCATIONS</a>
+          <a href="events.html" class="nav__link">EVENTS</a>
+        </nav>
+
+        <a href="https://onlineordering.laboracafe.com/" class="nav__order" target="_blank" rel="noopener">ORDER ONLINE</a>
+
+        <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+          MENU
+        </button>
+      </header>
+
+      <!-- Same footage as the LOCATIONS column on the home page; transition.js
+         picks it up at the timestamp it was at when the column was clicked. -->
+      <div class="loc-hero__media">
+        <video
+          class="loc-hero__video js-hero-video"
+          muted
+          loop
+          playsinline
+          preload="auto"
+          data-section="locations"
+          data-video="assets/videos/locations.mov"
+        ></video>
+      </div>
+
+      <span class="loc-hero__cue">[ where to find us ]</span>
+    </section>
+
+    <!-- ============ STORES ============ -->
+    <main class="loc-main">
+      <!-- KEARNY MESA -->
+      <section class="loc-store">
+        <div class="loc-store__media">
+          <video
+            class="loc-store__video js-store-video"
+            muted
+            loop
+            playsinline
+            preload="none"
+            data-video="assets/videos/convoy-location.mov"
+          ></video>
+        </div>
+        <div class="loc-store__text">
+          <p class="loc-store__tag">LEGACY STORE</p>
+          <h2 class="loc-store__name">KEARNY MESA</h2>
+          <p class="loc-store__desc">
+            Our first location.<br />A quiet space shaped by routine and craft.
+          </p>
+          <address class="loc-store__addr">
+            <a
+              class="loc-store__link"
+              href="https://www.google.com/maps/search/?api=1&amp;query=8055%20Clairemont%20Mesa%20Blvd%20Suite%20101%2C%20San%20Diego%2C%20CA%2092111"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="loc-store__street"
+                >8055 Clairemont Mesa Blvd<br />Suite 101</span
+              >
+              <svg
+                class="loc-store__ext"
+                viewBox="0 0 24 24"
+                width="13"
+                height="13"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+              <span class="sr-only">Opens in Google Maps</span>
+            </a>
+          </address>
+        </div>
+      </section>
+
+      <!-- NORTH PARK -->
+      <section class="loc-store loc-store--flip">
+        <div class="loc-store__media">
+          <video
+            class="loc-store__video js-store-video"
+            muted
+            loop
+            playsinline
+            preload="none"
+            data-video="assets/videos/np-location.mov"
+          ></video>
+        </div>
+        <div class="loc-store__text">
+          <p class="loc-store__tag">COMING SOON&hellip;</p>
+          <h2 class="loc-store__name">NORTH PARK</h2>
+          <p class="loc-store__desc">
+            Opening soon.<br />Same standard, new neighborhood.
+          </p>
+          <address class="loc-store__addr">
+            <a
+              class="loc-store__link"
+              href="https://www.google.com/maps/search/?api=1&amp;query=2899%20University%20Ave%2C%20San%20Diego%2C%20CA"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="loc-store__street">2899 University Ave</span>
+              <svg
+                class="loc-store__ext"
+                viewBox="0 0 24 24"
+                width="13"
+                height="13"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+              <span class="sr-only">Opens in Google Maps</span>
+            </a>
+          </address>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <div class="footer__cols">
+        <div class="footer__col">
+          <h3 class="footer__label">ADDRESS</h3>
+          <p>8055 Clairemont Mesa<br />BLVD #100, San Diego CA<br />92111</p>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__label">CONTACT</h3>
+          <p>help@laboracafe.com<br />Tel: 1.888.569.0660</p>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__label">HOURS</h3>
+          <p>OPEN DAILY<br />SUN&ndash;SAT: 7AM&ndash;11PM</p>
+        </div>
+
+        <div class="footer__brand">
+          <img
+            class="footer__logo"
+            src="assets/labora%20logo%20white.png"
+            alt="Labora Cafe"
+          />
+          <div class="footer__social">
+            <a href="https://www.instagram.com/laboracafe/" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle
+                  cx="17.5"
+                  cy="6.5"
+                  r="1"
+                  fill="currentColor"
+                  stroke="none"
+                />
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path
+                  d="M14 9h3V5h-3c-2.2 0-4 1.8-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9c0-.6.4-1 1-1z"
+                />
+              </svg>
+            </a>
+            <a href="https://www.yelp.com/biz/labora-kearny-mesa-san-diego?osq=Labora+-+Kearny+Mesa&amp;dd_referrer=https%3A%2F%2Fwww.yelp.com%2F" aria-label="Yelp" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path
+                  d="M12.5 3c-.6 0-3.5.9-3.9 1.5-.3.4-.2.9-.1 1.4l1.7 6.2c.2.7.6 1 1 1 .3 0 .6-.2.9-.6l3.3-4.9c.3-.5.5-.9.3-1.4C15.4 5.6 13.1 3 12.5 3zM8.2 13.6 3.6 12c-.5-.1-1-.2-1.4.2-.4.5-.7 3.1-.4 3.7.2.5.7.7 1.2.8l4.7.4c.6 0 1-.2 1.1-.6.2-.5 0-.9-.4-1.2zm1.9 2.1c-.4-.2-.9-.1-1.2.3l-2.7 3.9c-.3.4-.5.9-.3 1.4.3.6 2.5 1.9 3.1 1.8.6 0 .9-.5 1-1l.7-4.8c.1-.6-.1-1-.5-1.2zm5.6.6c-.2-.4-.6-.6-1.1-.5l-4.7 1c-.6.1-.9.5-.9 1 0 .6 2.1 4 2.6 4.2.5.2 1-.1 1.3-.5l2.6-4c.3-.4.4-.8.2-1.2zm3.6-3.2-4.6-1.4c-.5-.1-1 0-1.2.5-.2.4 0 .9.3 1.2l3.6 3.2c.4.3.8.5 1.3.3.6-.3 1.6-2.7 1.5-3.3-.1-.5-.5-.8-.9-.5z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__tagline">
+        <h2 class="footer__headline">
+          WORK IN QUIET LUXURY,<br />DISTILLED IN COFFEE
+        </h2>
+
+        <p class="footer__legal">
+          LABORA CAFE &copy; 2025, ALL RIGHTS RESERVED<br />
+          DESIGNED BY
+          <a href="https://khoiqnguyen.com" target="_blank" rel="noopener"
+            >KHOI NGUYEN</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <script src="locations.js"></script>
+    <script src="transition.js"></script>
+  </body>
+</html>
