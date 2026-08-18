@@ -162,19 +162,12 @@
           <p class="field__error" data-error-for="resume"></p>
         </div>
 
-        <!-- Formspree helpers. _subject titles the notification email so the
-           two forms are tellable apart in an inbox. _gotcha is a honeypot:
-           bots fill every field they find, humans never see this one, and
-           Formspree silently discards anything that arrives with it set. -->
+        <!-- _subject titles the notification email so the two forms are
+           tellable apart in an inbox. (A _gotcha honeypot used to sit here.
+           iOS autofill can populate an off-screen text input, and Formspree
+           bins anything with _gotcha filled as spam — silently, returning
+           success. Formshield covers spam on its own.) -->
         <input type="hidden" name="_subject" value="New careers application — laboracafe.com" />
-        <input
-          class="form-hp"
-          type="text"
-          name="_gotcha"
-          tabindex="-1"
-          autocomplete="off"
-          aria-hidden="true"
-        />
 
         <button class="form-submit" type="submit">Submit application</button>
 

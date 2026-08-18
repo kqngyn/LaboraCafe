@@ -1105,15 +1105,6 @@ img {
   opacity: 0.5;
   cursor: default;
 }
-/* Honeypot: parked off-screen rather than display:none, so bots that skip
-   hidden inputs still fill it in. */
-.form-hp {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-}
 .form-status:empty {
   display: none;
 }
