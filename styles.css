@@ -589,29 +589,44 @@ img {
     overflow: hidden;
   }
 
+  /* The header row goes black as well, so the logo and CLOSE sit on the
+     panel rather than on top of moving video. */
+  .page-inner .nav.is-open {
+    background: #0d0d0d;
+  }
+
   /* mobile dropdown when toggled open — a full-height panel, not a
      content-sized flyout, so it covers the page rather than floating on it */
   .page-inner .nav.is-open .nav__links {
     display: flex;
     flex-direction: column;
-    gap: 26px;
+    gap: 28px;
     position: fixed;
     inset: calc(var(--announce-h) + var(--nav-h)) 0 0 0;
     background: #0d0d0d;
-    padding: 40px 32px calc(120px + env(safe-area-inset-bottom));
+    /* justify-end stacks the links at the foot of the panel; the bottom
+       padding is the landing strip ORDER ONLINE sits in */
+    justify-content: flex-end;
     align-items: flex-start;
+    padding: 40px 32px calc(132px + env(safe-area-inset-bottom));
     transform: none;
     z-index: 90;
     overflow-y: auto;
     overscroll-behavior: contain;
+  }
+  .page-inner .nav.is-open .nav__link {
+    font-size: 28px;
+    letter-spacing: 4px;
   }
   /* Anchored to the bottom of the panel. It used to sit at a hardcoded
      top offset that landed exactly on the last nav link. */
   .page-inner .nav.is-open .nav__order {
     display: block;
     position: fixed;
-    bottom: calc(48px + env(safe-area-inset-bottom));
+    bottom: calc(52px + env(safe-area-inset-bottom));
     left: 32px;
+    font-size: 20px;
+    letter-spacing: 4px;
     z-index: 91;
   }
 
