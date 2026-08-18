@@ -584,26 +584,35 @@ img {
     display: block;
   }
 
-  /* mobile dropdown when toggled open */
+  /* the page behind the open panel shouldn't scroll */
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  /* mobile dropdown when toggled open — a full-height panel, not a
+     content-sized flyout, so it covers the page rather than floating on it */
   .page-inner .nav.is-open .nav__links {
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 26px;
     position: fixed;
-    inset: calc(var(--announce-h) + var(--nav-h)) 0 auto 0;
+    inset: calc(var(--announce-h) + var(--nav-h)) 0 0 0;
     background: #0d0d0d;
-    padding: 28px 32px 36px;
+    padding: 40px 32px calc(120px + env(safe-area-inset-bottom));
     align-items: flex-start;
     transform: none;
-    left: 0;
     z-index: 90;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
+  /* Anchored to the bottom of the panel. It used to sit at a hardcoded
+     top offset that landed exactly on the last nav link. */
   .page-inner .nav.is-open .nav__order {
     display: block;
     position: fixed;
-    top: calc(var(--announce-h) + var(--nav-h) + 188px);
+    bottom: calc(48px + env(safe-area-inset-bottom));
     left: 32px;
-    z-index: 90;
+    z-index: 91;
   }
 
   .menu-main {

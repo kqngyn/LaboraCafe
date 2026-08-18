@@ -13,6 +13,7 @@
   if (nav && toggle) {
     toggle.addEventListener("click", function () {
       var open = nav.classList.toggle("is-open");
+      document.body.classList.toggle("nav-open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
       toggle.textContent = open ? "CLOSE" : "MENU";
     });
