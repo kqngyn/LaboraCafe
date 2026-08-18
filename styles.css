@@ -1045,53 +1045,6 @@ img {
   display: none;
 }
 
-/* Resume picker — the native file input is unstylable, so it is
-   visually hidden and the label acts as the button. It stays in the
-   tab order and keeps its own focus ring. */
-.field--file {
-  margin-top: 30px;
-}
-.field__file {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  overflow: hidden;
-}
-.filepick {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.filepick__btn {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #262626;
-  border: 1px solid #262626;
-  padding: 11px 20px;
-  cursor: pointer;
-  transition:
-    background 0.25s ease,
-    color 0.25s ease;
-}
-.filepick__btn:hover {
-  background: #262626;
-  color: var(--cream);
-}
-.field__file:focus-visible + .filepick .filepick__btn {
-  outline: 2px solid #262626;
-  outline-offset: 3px;
-}
-.filepick__name {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: #5f5d57;
-  word-break: break-all;
-}
-
 .form-submit {
   margin-top: 44px;
   font-family: var(--font-mono);
@@ -1120,6 +1073,22 @@ img {
 }
 .form-status.is-error {
   color: #a4462f;
+}
+.form-status.is-ok {
+  color: #3f6b4a;
+}
+.form-submit:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+/* Honeypot: parked off-screen rather than display:none, so bots that skip
+   hidden inputs still fill it in. */
+.form-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
 }
 .form-status:empty {
   display: none;

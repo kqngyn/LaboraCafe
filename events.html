@@ -8,6 +8,8 @@
       name="description"
       content="Host an event with Labora — tastings, pop-ups, workshops, and community gatherings with local businesses, creators, and organizations in San Diego."
     />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="page-inner page-events">
@@ -74,13 +76,11 @@
         </p>
       </div>
 
-      <!-- NOTE: a static site has nowhere to deliver a submission. Point
-         action= at a form backend (Formspree, Basin, Netlify Forms, your own
-         endpoint). Until the placeholder below is replaced, events.js blocks
-         submission and says so. -->
+      <!-- Delivered to Formspree; events.js posts it over fetch so the
+         sender stays on the page. -->
       <form
         class="events-form"
-        action="https://formspree.io/f/YOUR_FORM_ID"
+        action="https://formspree.io/f/mbgrppyg"
         method="post"
         novalidate
       >
@@ -155,6 +155,20 @@
           </p>
           <p class="field__error" data-error-for="details"></p>
         </div>
+
+        <!-- Formspree helpers. _subject titles the notification email so the
+           two forms are tellable apart in an inbox. _gotcha is a honeypot:
+           bots fill every field they find, humans never see this one, and
+           Formspree silently discards anything that arrives with it set. -->
+        <input type="hidden" name="_subject" value="New event enquiry — laboracafe.com" />
+        <input
+          class="form-hp"
+          type="text"
+          name="_gotcha"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+        />
 
         <button class="form-submit" type="submit">Send enquiry</button>
 

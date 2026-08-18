@@ -87,7 +87,75 @@
     });
   });
 
+  /* ---------- Delivery ----------
+     Sent over fetch rather than as a native POST, so the sender stays on
+     the page. A plain POST hands them Formspree's own thank-you screen and
+     drops them out of the site entirely. */
+  var submitBtn = form.querySelector(".form-submit");
+  var sending = false;
+
+  function setStatus(message, kind) {
+    if (!status) return;
+    status.textContent = message;
+    status.classList.toggle("is-error", kind === "error");
+    status.classList.toggle("is-ok", kind === "ok");
+  }
+
+  function settle(message, kind) {
+    sending = false;
+    if (submitBtn) submitBtn.disabled = false;
+    setStatus(message, kind);
+  }
+
+  function send() {
+    if (sending) return; // double-click guard
+    sending = true;
+    if (submitBtn) submitBtn.disabled = true;
+    setStatus("Sending\u2026", "");
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    })
+      .then(function (res) {
+        return res
+          .json()
+          .catch(function () {
+            return {};
+          })
+          .then(function (data) {
+            if (res.ok) {
+              form.reset();
+              settle("Thanks \u2014 we've got your enquiry and will be in touch.", "ok");
+              return;
+            }
+            /* Formspree answers with {errors:[{message}]} for an unverified
+               address, a plan limit, a blocked domain — surface what it said
+               rather than a generic failure. */
+            var errors = data && data.errors;
+            settle(
+              errors && errors.length
+                ? errors
+                    .map(function (x) {
+                      return x.message;
+                    })
+                    .join(" ")
+                : "Something went wrong. Please email help@laboracafe.com instead.",
+              "error"
+            );
+          });
+      })
+      .catch(function () {
+        settle(
+          "Couldn't reach the server. Check your connection, or email help@laboracafe.com.",
+          "error"
+        );
+      });
+  }
+
   form.addEventListener("submit", function (e) {
+    e.preventDefault(); // always handled in JS now
     var first = null;
 
     CHECKS.forEach(function (check) {
@@ -99,27 +167,21 @@
     });
 
     if (first) {
-      e.preventDefault();
       if (status) status.textContent = "";
       first.focus();
       return;
     }
 
-    /* The action is still the placeholder from the markup — posting
-       would 404 and look like the sender's fault. Say what's wrong. */
+    /* The action is still the placeholder from the markup — posting would
+       404 and look like the sender's fault. Say what's actually wrong. */
     if (form.getAttribute("action").indexOf("YOUR_FORM_ID") !== -1) {
-      e.preventDefault();
-      if (status) {
-        status.textContent =
-          "This form isn't connected to a backend yet — see the note in events.html.";
-        status.classList.add("is-error");
-      }
+      setStatus(
+        "This form isn't connected yet — see the note in events.html.",
+        "error"
+      );
       return;
     }
 
-    if (status) {
-      status.classList.remove("is-error");
-      status.textContent = "Sending…";
-    }
+    send();
   });
 })();

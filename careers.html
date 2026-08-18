@@ -6,8 +6,10 @@
     <title>Careers — Labora Cafe</title>
     <meta
       name="description"
-      content="Work with us. Send Labora Cafe your application and resume — Kearny Mesa and North Park, San Diego."
+      content="Work with us. Send Labora Cafe your application and resume link — Kearny Mesa and North Park, San Diego."
     />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="page-inner page-careers">
@@ -64,15 +66,13 @@
     <main class="careers-main">
       <h1 class="careers-statement">APPLY TODAY,<br />WE&rsquo;LL BE IN TOUCH</h1>
 
-      <!-- NOTE: a static site can't receive a file upload on its own. Point
-         action= at a form backend that accepts multipart uploads (Formspree,
-         Basin, Netlify Forms, your own endpoint). Until the placeholder below
-         is replaced, careers.js blocks submission and says so. -->
+      <!-- Delivered to Formspree; careers.js posts it over fetch so the
+         applicant stays on the page. Resumes come in as a shared link rather
+         than an attachment — file uploads need a paid Formspree plan. -->
       <form
         class="careers-form"
-        action="https://formspree.io/f/YOUR_FORM_ID"
+        action="https://formspree.io/f/xrpzooke"
         method="post"
-        enctype="multipart/form-data"
         novalidate
       >
         <div class="field">
@@ -135,25 +135,38 @@
           />
         </div>
 
-        <!-- Resume upload -->
-        <div class="field field--file">
-          <span class="field__label" id="resume-label">Resume</span>
+        <div class="field">
+          <label class="field__label" for="resume">Link to your resume</label>
           <input
-            class="field__file"
+            class="field__input"
             id="resume"
             name="resume"
-            type="file"
-            accept="application/pdf,.pdf"
+            type="url"
+            inputmode="url"
+            placeholder="drive.google.com/..."
             aria-describedby="resume-hint"
             required
           />
-          <div class="filepick">
-            <label class="filepick__btn" for="resume">Choose PDF</label>
-            <span class="filepick__name" data-file-name>No file chosen</span>
-          </div>
-          <p class="field__hint" id="resume-hint">PDF only, up to 5MB.</p>
+          <p class="field__hint" id="resume-hint">
+            Google Drive, Dropbox, or LinkedIn. Set the sharing so anyone with
+            the link can view it &mdash; otherwise we can&rsquo;t open it.
+          </p>
           <p class="field__error" data-error-for="resume"></p>
         </div>
+
+        <!-- Formspree helpers. _subject titles the notification email so the
+           two forms are tellable apart in an inbox. _gotcha is a honeypot:
+           bots fill every field they find, humans never see this one, and
+           Formspree silently discards anything that arrives with it set. -->
+        <input type="hidden" name="_subject" value="New careers application — laboracafe.com" />
+        <input
+          class="form-hp"
+          type="text"
+          name="_gotcha"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+        />
 
         <button class="form-submit" type="submit">Submit application</button>
 
