@@ -335,6 +335,17 @@ img {
   line-height: 1.5;
   color: #cfcdc7;
 }
+/* stacked addresses in the LOCATIONS column */
+.footer__col p + p {
+  margin-top: 18px;
+}
+/* the store name sits brighter than its address so the list scans */
+.footer__store {
+  display: inline-block;
+  color: var(--cream);
+  letter-spacing: 0.15em;
+  margin-bottom: 2px;
+}
 .footer__brand {
   justify-self: end;
   display: flex;
@@ -385,34 +396,45 @@ img {
 }
 
 @media (max-width: 768px) {
+  /* Mobile footer: brand leads, centred. Columns and the tagline run down
+     a single left rail. Only the legal line is flushed right. */
   .footer {
     padding: 40px 24px 32px;
-    text-align: center;
+    text-align: left;
   }
   .footer__cols {
     grid-template-columns: 1fr;
-    gap: 28px;
-    justify-items: center;
+    gap: 30px;
+    justify-items: stretch;
   }
+  /* order:-1 lifts the brand above the three columns without touching the
+     markup, so desktop keeps it in the right-hand slot */
   .footer__brand {
+    order: -1;
     justify-self: center;
+    align-items: center;
     text-align: center;
+    margin-bottom: 6px;
   }
   .footer__logo {
+    height: 76px;
     margin: 0 auto;
   }
   .footer__social {
     justify-content: center;
+    gap: 24px;
+    margin-top: 20px;
   }
   .footer__label {
     letter-spacing: 0.3em;
   }
   .footer__tagline {
     width: auto;
-    margin-inline: auto;
+    margin-inline: 0;
+    margin-top: 36px;
   }
   .footer__legal {
-    text-align: center;
+    text-align: right;
   }
 }
 
