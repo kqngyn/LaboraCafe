@@ -1758,7 +1758,8 @@ body.is-loading {
 /* --- Typed greeting, played out before the panel leaves --- */
 .loader__type {
   position: relative;
-  margin-top: 30px;
+  /* margin-top: 30px; */ /* paired with the commented-out logo in index.html —
+     with the logo hidden this would push the line off centre */
   font-family: var(--font-mono);
   font-size: 13px;
   letter-spacing: 5px;
