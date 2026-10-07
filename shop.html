@@ -239,10 +239,15 @@
             <p>30g (1.06 oz)</p>
           </div>
           <p class="product__price">$40.00</p>
-          <!-- data-variant-id: paste the Shopify variant id here
-               (Products > the product > variant > the numeric id at the end
-               of the admin URL, as gid://shopify/ProductVariant/NNNNNNNN) -->
-          <button class="product__add" type="button" data-variant-id="">
+          <!-- The Shopify product handle — the slug in the admin URL
+               (Products > the product > Search engine listing > URL handle).
+               shop.js looks the product up by this, so there is no variant id
+               to copy and no id-format to get wrong. -->
+          <button
+            class="product__add"
+            type="button"
+            data-product-handle="kyoto-2"
+          >
             Add to cart
           </button>
           <p class="product__note" data-note-for="kyoto-2"></p>
@@ -368,10 +373,15 @@
             <p>32 oz.</p>
           </div>
           <p class="product__price">$45.00</p>
-          <!-- data-variant-id: paste the Shopify variant id here
-               (Products > the product > variant > the numeric id at the end
-               of the admin URL, as gid://shopify/ProductVariant/NNNNNNNN) -->
-          <button class="product__add" type="button" data-variant-id="">
+          <!-- The Shopify product handle — the slug in the admin URL
+               (Products > the product > Search engine listing > URL handle).
+               shop.js looks the product up by this, so there is no variant id
+               to copy and no id-format to get wrong. -->
+          <button
+            class="product__add"
+            type="button"
+            data-product-handle="element-36"
+          >
             Add to cart
           </button>
           <p class="product__note" data-note-for="element-36"></p>

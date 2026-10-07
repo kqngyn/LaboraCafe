@@ -3,21 +3,23 @@
    The two product sections are written into shop.html by hand, so the
    copy and layout are ours. This file does three things:
      1. the image carousel in each product's media half
-     2. add-to-cart, against a Shopify variant id on each button
+     2. add-to-cart, resolving each product by its Shopify handle
      3. the cart drawer, which hands off to Shopify's secure checkout
         — the only step that leaves this site
 
-   >>> SETUP, two parts:
-   (a) fill in the store below
+   >>> SETUP: fill in the two values below and nothing else.
        domain ................ Settings > Domains ("xxx.myshopify.com")
        storefrontAccessToken . Settings > Apps and sales channels >
                                Develop apps > create an app > Storefront
-                               API, with unauthenticated_read_product_*
+                               API, with unauthenticated_read_product_listings
                                and unauthenticated_write_checkouts scopes
-   (b) put each product's variant id in its data-variant-id in shop.html
 
-   Until both are done the page still renders in full; only the buttons
-   say the cart isn't connected yet.
+   Each button carries a data-product-handle; the product is looked up by
+   that at load, so no variant id is copied by hand. The live price and
+   availability then replace what is written in the HTML.
+
+   Until the two values are filled in the page still renders in full; only
+   the buttons say ordering isn't open yet.
    ============================================================ */
 var LABORA_SHOP = {
   domain: "YOUR-STORE.myshopify.com",
@@ -200,8 +202,47 @@ var LABORA_SHOP = {
     }, createCheckout);
   }
 
+  /* handle -> variant id, filled in by hydrate() below */
+  var variantFor = {};
+
+  /* Look each product up by its handle. This keeps the id format out of the
+     HTML, and lets Shopify be the source of truth for price and stock so the
+     page can't drift from what the customer is actually charged. */
+  function hydrate() {
+    return Promise.all(
+      addButtons.map(function (button) {
+        var handle = button.getAttribute("data-product-handle");
+        if (!handle) return null;
+
+        return client.product
+          .fetchByHandle(handle)
+          .then(function (product) {
+            var variant = product && product.variants && product.variants[0];
+            if (!variant) throw new Error("no variant");
+
+            variantFor[handle] = variant.id;
+
+            var section = button.closest(".product");
+            var priceEl = section && section.querySelector(".product__price");
+            if (priceEl && variant.price) priceEl.textContent = money(variant.price);
+
+            if (!variant.available) {
+              button.disabled = true;
+              button.textContent = "Sold out";
+            }
+          })
+          .catch(function () {
+            /* leave the price written in the HTML as the fallback */
+            button.disabled = true;
+            noteFor(button, "This item isn't available online yet.", true);
+          });
+      })
+    );
+  }
+
   function addToCart(button) {
-    var variantId = button.getAttribute("data-variant-id");
+    var handle = button.getAttribute("data-product-handle");
+    var variantId = variantFor[handle];
     if (!variantId) {
       noteFor(button, "This item isn't available online yet.", true);
       return;
@@ -352,7 +393,9 @@ var LABORA_SHOP = {
     });
   }
 
-  loadCheckout().catch(function () {
-    disableAll("The cart couldn't load. Please refresh.");
-  });
+  loadCheckout()
+    .then(hydrate)
+    .catch(function () {
+      disableAll("The cart couldn't load. Please refresh.");
+    });
 })();
