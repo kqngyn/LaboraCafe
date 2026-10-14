@@ -5,27 +5,27 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://laboracafe.com/menu.html</loc>
+    <loc>https://laboracafe.com/menu</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://laboracafe.com/about.html</loc>
+    <loc>https://laboracafe.com/about</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://laboracafe.com/locations.html</loc>
+    <loc>https://laboracafe.com/locations</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://laboracafe.com/careers.html</loc>
+    <loc>https://laboracafe.com/careers</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://laboracafe.com/events.html</loc>
+    <loc>https://laboracafe.com/events</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://laboracafe.com/shop.html</loc>
+    <loc>https://laboracafe.com/shop</loc>
     <priority>0.8</priority>
   </url>
 </urlset>
